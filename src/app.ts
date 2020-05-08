@@ -1,7 +1,9 @@
 import express from 'express';
 
+import './database';
+
 class App {
-  server: express.Express;
+  public server: express.Express;
   constructor() {
     this.server = express();
 
