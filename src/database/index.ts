@@ -3,7 +3,7 @@ import { Sequelize } from 'sequelize';
 import databaseConfig from '../config/database';
 
 class Database {
-  private connection!: Sequelize;
+  public connection!: Sequelize;
   constructor() {
     this.init();
   }
