@@ -61,6 +61,11 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@types/bcryptjs@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.2.tgz#e3530eac9dd136bfdfb0e43df2c4c5ce1f77dfae"
+  integrity sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==
+
 "@types/bluebird@^3.5.30":
   version "3.5.30"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.30.tgz#ee034a0eeea8b84ed868b1aa60d690b08a6cfbc5"
@@ -137,6 +142,11 @@
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.0.0.tgz#365f1bf936aeaddd0856fc41aa1d6f82d88ee5b3"
   integrity sha512-WAy5txG7aFX8Vw3sloEKp5p/t/Xt8jD3GRD9DacnFv6Vo8ubudAsRTXgxpQwU0mpzY/H8U4db3roDuCMjShBmw==
+
+"@types/yup@^0.28.1":
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.28.1.tgz#4ab216567c480dbad1e20084988fa2b682002847"
+  integrity sha512-5Xqhu/yZWqtO5ZI83SELkq4vA4LnQzzBPlx0zBH9JgMPTuQk3RoTEotKe8is7ZG2Pk+2DmMhid+2Mn87PgpJgw==
 
 abbrev@1:
   version "1.1.1"
