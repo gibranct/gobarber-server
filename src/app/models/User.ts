@@ -1,12 +1,14 @@
-import { Model, DataTypes, VirtualDataType, Sequelize } from 'sequelize';
+import { Model, DataTypes, VirtualDataType } from 'sequelize';
 import bcrypt from 'bcryptjs';
 
 import database from '../../database';
+import File from '../models/File';
 
 class User extends Model {
   public id!: number;
   public name!: string;
   public email!: string;
+  public avatar!: any;
   // tslint:disable-next-line: variable-name
   public password_hash!: string;
   public password!: VirtualDataType<DataTypes.StringDataType>;
@@ -54,6 +56,8 @@ User.init(
     tableName: 'users',
   }
 );
+
+User.belongsTo(File, { foreignKey: { name: 'avatar_id' }, as: 'avatar' });
 
 User.beforeSave(async (user: User) => {
   if (user.password) {
