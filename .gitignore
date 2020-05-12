@@ -32,3 +32,6 @@ node_modules
 
 # Pasta com arquivos de configuração do vscode
 .vscode
+
+# temp files
+tmp
