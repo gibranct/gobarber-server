@@ -59,9 +59,13 @@ User.init(
 
 User.belongsTo(File, { foreignKey: { name: 'avatar_id' }, as: 'avatar' });
 
-User.beforeSave(async (user: User) => {
+User.beforeValidate(async (user: User) => {
   if (user.password) {
-    user.password_hash = await bcrypt.hash(String(user.password), 8);
+    try {
+      user.password_hash = await bcrypt.hash(String(user.password), 8);
+    } catch (error) {
+      throw new Error('Error trying to create hash password');
+    }
   }
 });
 
