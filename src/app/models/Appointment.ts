@@ -7,9 +7,12 @@ import database from '../../database';
 class Appointment extends Model {
   public id!: number;
   public date!: Date;
+  public formattedDate!: string;
 
   // tslint:disable-next-line: variable-name
   public canceled_at!: Date;
+  // tslint:disable-next-line: variable-name
+  public user_id!: number;
 
   get past() {
     return isBefore(this.date, new Date());
