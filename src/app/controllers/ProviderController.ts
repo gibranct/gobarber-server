@@ -8,7 +8,9 @@ class ProviderController {
     const providers = await User.findAll({
       where: { provider: true },
       attributes: ['id', 'name', 'email', 'avatar_id'],
-      include: [{ model: File, as: 'avatar', attributes: ['name', 'path'] }],
+      include: [
+        { model: File, as: 'avatar', attributes: ['id', 'path', 'url'] },
+      ],
     });
 
     return res.json(providers);
