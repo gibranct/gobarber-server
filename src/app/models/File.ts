@@ -28,6 +28,12 @@ File.init(
       allowNull: false,
       unique: true,
     },
+    url: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return `http://localhost:3333/files/${this.path}`;
+      },
+    },
   },
   {
     tableName: 'files',
