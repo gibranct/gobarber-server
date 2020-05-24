@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
 import { Request, Response } from 'express';
-import { startOfHour, parseISO, isBefore, subHours } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
+import Notification from '../schemas/Notification';
 
 class AppointmentController {
   async index(req: Request<any, any, any, { page: number }>, res: Response) {
@@ -62,6 +63,12 @@ class AppointmentController {
           .json({ error: 'You can only create appointments with a provider' });
       }
 
+      if (provider_id === req.body.userId) {
+        return res
+          .status(400)
+          .json({ error: 'You cannot make an appointment with yourself' });
+      }
+
       const hourStart = startOfHour(parseISO(date));
 
       if (isBefore(hourStart, new Date())) {
@@ -87,6 +94,14 @@ class AppointmentController {
         provider_id,
         user_id: req.body.userId,
         date: hourStart.toISOString(),
+      });
+
+      const user = await User.findByPk(req.body.userId);
+      const formattedDate = format(hourStart, "MMMM dd', at' H:mm");
+
+      await Notification.create({
+        content: `New appointment of ${user?.name} to ${formattedDate}`,
+        user: provider_id,
       });
 
       return res.json(appointment);
