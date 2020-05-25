@@ -8,6 +8,8 @@ class Appointment extends Model {
   public id!: number;
   public date!: Date;
   public formattedDate!: string;
+  public provider!: User;
+  public user!: User;
 
   // tslint:disable-next-line: variable-name
   public canceled_at!: Date;
