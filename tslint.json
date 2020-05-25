@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "import-name": false,
-    "trailing-comma": true
+    "trailing-comma": true,
+    "object-shorthand-properties-first": false
   },
   "rulesDirectory": []
 }
