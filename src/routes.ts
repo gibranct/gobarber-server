@@ -8,6 +8,7 @@ import FileController from './app/controllers/FileController';
 import SessionController from './app/controllers/SessionController';
 import ScheduleController from './app/controllers/ScheduleController';
 import ProviderController from './app/controllers/ProviderController';
+import AvailableController from './app/controllers/AvailableController';
 import AppointmentController from './app/controllers/AppointmentController';
 import NotificationController from './app/controllers/NotificationController';
 
@@ -29,6 +30,8 @@ routes.delete('/appointments/:id', AppointmentController.delete);
 routes.get('/schedule', ScheduleController.index);
 
 routes.get('/providers', ProviderController.index);
+
+routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
