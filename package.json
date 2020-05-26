@@ -6,7 +6,8 @@
   "scripts": {
     "copyfiles": "copyfiles -u 2 './src/app/views/**/*' ./dist/app",
     "start": "nodemon dist/server.js",
-    "debug": "nodemon --inspect dist/server.js"
+    "debug": "nodemon --inspect dist/server.js",
+    "queue": "nodemon dist/queue.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -38,6 +39,7 @@
     "@types/nodemailer": "^6.4.0",
     "@types/nodemailer-direct-transport": "^1.0.31",
     "@types/nodemailer-smtp-transport": "^2.7.4",
+    "@types/redis": "^2.8.21",
     "@types/validator": "^13.0.0",
     "@types/yup": "^0.28.1",
     "copyfiles": "^2.2.0",
