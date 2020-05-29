@@ -16,14 +16,6 @@ class Appointment extends Model {
   // tslint:disable-next-line: variable-name
   public user_id!: number;
 
-  get past() {
-    return isBefore(this.date, new Date());
-  }
-
-  get cancelable() {
-    return isBefore(new Date(), subHours(this.date, 2));
-  }
-
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -32,6 +24,18 @@ Appointment.init(
   {
     date: Sequelize.STRING,
     canceled_at: Sequelize.DATE,
+    past: {
+      type: Sequelize.VIRTUAL,
+      get() {
+        return isBefore((this as any).date, new Date());
+      },
+    },
+    cancelable: {
+      type: Sequelize.VIRTUAL,
+      get() {
+        return isBefore(new Date(), subHours((this as any).date, 2));
+      },
+    },
   },
   {
     sequelize: database.connection,
