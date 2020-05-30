@@ -1,8 +1,5 @@
 {
-  "ignore": [".git", "node_modules/**/node_modules", "dist/app/views"],
-  "events": {
-    "restart": "npm run copyfiles"
-  },
-  "watch": ["dist", "src/app/views"],
-  "ext": "js,json,hbs"
+  "ignore": [".git", "node_modules/**/node_modules"],
+  "watch": ["src"],
+  "ext": "ts,json,hbs"
 }
