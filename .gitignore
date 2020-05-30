@@ -35,3 +35,6 @@ node_modules
 
 # temp files
 tmp
+
+#env files
+.env

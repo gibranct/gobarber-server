@@ -1,5 +1,8 @@
 import path from 'path';
 import express from 'express';
+import environment from 'dotenv';
+
+environment.config();
 
 import './database';
 import routes from './routes';

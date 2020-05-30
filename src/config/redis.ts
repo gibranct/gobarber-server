@@ -1,4 +1,7 @@
+const REDIS_HOST = process.env.REDIS_HOST || '127.0.0.1';
+const REDIS_PORT = (process.env.REDIS_PORT || 6379) as number;
+
 export default {
-  host: '127.0.0.1',
-  port: '6379',
+  host: REDIS_HOST,
+  port: REDIS_PORT,
 };
